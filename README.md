@@ -1,11 +1,43 @@
-# Start your own "Can of Books" App
+# can-of-books
 
-This repository has starter code to begin work on creating your own online bookshelf.
+**Author**: islamalghou,abdelrhaman alasal
+**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
-## What can books do?
+## Overview
 
-Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. Build out this code base to create an web app to track what books have impacted you, and what's recommended to read next.
+this app for can-of-books to provide the users with informativ books 
 
-## Use this template
+## Getting Started
+should build the frontend and the backend and conect it with database
 
-Clone this repo to your own account with the green "Use this template" button. Then, add any collaborators. Now you are ready to start adding features! Deploy your site to let the world know which books have had the greatest impact on you, and what's recommended. Enjoy!
+## Architecture
+react.js node.js
+and mongodb
+## Change Log
+using js as frontend and backend
+9/4/2022 - Application now has a fully-functional express server, with a GET route for the location resource. -->
+
+
+
+Name of feature: can-of-books
+
+Estimate of time needed to complete:3h
+
+Start time:6
+
+Finish time:9
+Actual time needed to complete: 9:20
+
+
+
+What kind of data is a good fit for an SQL database? regular data
+Give a real world example.MySQL. MariaDB. Oracle.
+What kind of data is a good fit a NoSQL database? Irregular and regular data
+Give a real world example.
+MongoDB.
+Redis.
+Cassandra.
+Elasticsearch.
+Firebase.
+Which type of database is best for hierarchical data storage?Document based database like MongoDB, and Redis 
+Which type of database is best for scalability? Apache Cassandra
