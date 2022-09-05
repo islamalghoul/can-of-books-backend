@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-mongoose.connect('mongodb://localhost:27017/can-of-books',{useNewUrlParser: true, useUnifiedTopology: true}) ;  
+mongoose.connect('mongodb://islamalghoul:0000@ac-iay6ewh-shard-00-00.lv5o8jo.mongodb.net:27017,ac-iay6ewh-shard-00-01.lv5o8jo.mongodb.net:27017,ac-iay6ewh-shard-00-02.lv5o8jo.mongodb.net:27017/?ssl=true&replicaSet=atlas-sjjl5m-shard-0&authSource=admin&retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true}) ;  
 
 const booksSchema = new mongoose.Schema({
     title: String,
@@ -31,5 +31,5 @@ await firstBook.save()
 await secondBook.save()
 await thirdBook.save()
   }
-
+    // seedData()
   module.exports= book
