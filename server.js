@@ -14,6 +14,33 @@ app.get('/test', (request, response) => {
   response.send('test request received')
 
 })
+let handelupdate=(req,res)=>{
+  const id = req.params.id;
+  const {title,description,status} = req.body; //Destructuring assignment
+  console.log(req.body);
+  book.findByIdAndUpdate(id,{title,description,status},(err,result)=>{
+
+      if(err) {
+          console.log(err);
+      }
+      else {
+        book.find({},(err,result)=>{
+              if(err)
+              {
+                  console.log(err);
+              }
+              else
+              {
+                console.log(result)
+                  res.send(result);
+                  
+              }
+          })
+      }
+  })
+
+}
+app.put('/books/:id',handelupdate);
 let bookshandler= async(req,res)=>{
   let{title,description,status}=req.body;
   console.log(title,description,status)
@@ -48,7 +75,7 @@ let deleteHandler=(req,res)=>{
           
           res.send(result);
       }
-  })  
+  })
 
   })
   }
