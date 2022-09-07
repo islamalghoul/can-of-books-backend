@@ -47,7 +47,7 @@ let deleteHandler=(req,res)=>{
   let id=req.params.id
   console.log(id)
   book.deleteOne({_id:id},(err,result)=>{
-    book.find({},(err,result)=>{
+    book.find({email:email},(err,result)=>{
       if(err)
       {
           console.log(err);
@@ -92,7 +92,7 @@ app.get('/',(req,res)=>{
 })
 app.get('/books',(req,res)=>{
 
-  book.find({},(err,result)=>{
+  book.find({email:email},(err,result)=>{
     if(err)
     {
         console.log(err);
