@@ -4,7 +4,10 @@ mongoose.connect('mongodb://islamalghoul:0000@ac-iay6ewh-shard-00-00.lv5o8jo.mon
 const booksSchema = new mongoose.Schema({
     title: String,
     description:String,
-    status :String
+    status :String,
+    email:String,
+    name:String
+    
   });
   let book=mongoose.model('books',booksSchema)
 
