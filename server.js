@@ -16,7 +16,8 @@ app.get('/test', (request, response) => {
 })
 let handelupdate=(req,res)=>{
   const id = req.params.id;
-  const {title,description,status} = req.body; //Destructuring assignment
+  let email=req.params.email;
+  const {title,description,status,} = req.body; //Destructuring assignment
   console.log(req.body);
   book.findByIdAndUpdate(id,{title,description,status},(err,result)=>{
 
@@ -24,7 +25,7 @@ let handelupdate=(req,res)=>{
           console.log(err);
       }
       else {
-        book.find({},(err,result)=>{
+        book.find({email:email},(err,result)=>{
               if(err)
               {
                   console.log(err);
@@ -40,11 +41,12 @@ let handelupdate=(req,res)=>{
   })
 
 }
-app.put('/books/:id',handelupdate);
+app.put('/books/:id/:email',handelupdate);
 
 
 let deleteHandler=(req,res)=>{
   let id=req.params.id
+  let email=req.params.email
   console.log(id)
   book.deleteOne({_id:id},(err,result)=>{
     book.find({email:email},(err,result)=>{
@@ -84,7 +86,7 @@ let deleteHandler=(req,res)=>{
       }
   })
   } 
-app.delete('/books/:id',deleteHandler)
+app.delete('/books/:id/:email',deleteHandler)
 app.post('/books',bookshandler)
 
 app.get('/',(req,res)=>{
