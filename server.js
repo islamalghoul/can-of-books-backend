@@ -72,7 +72,7 @@ let deleteHandler=(req,res)=>{
       email:email,
        name :name
     })
-    book.find({},(err,result)=>{
+    book.find({email:email},(err,result)=>{
       if(err)
       {
           console.log(err);
