@@ -5,8 +5,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 app.use(cors());
-app.use(express.json())
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 const PORT = process.env.PORT || 3001;
 
 app.get('/test', (request, response) => {
@@ -41,26 +41,8 @@ let handelupdate=(req,res)=>{
 
 }
 app.put('/books/:id',handelupdate);
-let bookshandler= async(req,res)=>{
-  let{title,description,status}=req.body;
-  console.log(title,description,status)
-  await book.create({
-    title: title,
-    description:description,
-    status :status
-  })
-  book.find({},(err,result)=>{
-    if(err)
-    {
-        console.log(err);
-    }
-    else
-    {
-        
-        res.send(result);
-    }
-})
-} 
+
+
 let deleteHandler=(req,res)=>{
   let id=req.params.id
   console.log(id)
@@ -79,8 +61,32 @@ let deleteHandler=(req,res)=>{
 
   })
   }
+  let bookshandler= async(req,res)=>{
+    let{title,description,status,email,name}=req.body;
+    console.log(title,description,status)
+    console.log('hi from frontend')
+    await book.create({
+      title: title,
+      description:description,
+      status :status,
+      email:email,
+       name :name
+    })
+    book.find({},(err,result)=>{
+      if(err)
+      {
+          console.log(err);
+      }
+      else
+      {
+          
+          res.send(result);
+      }
+  })
+  } 
 app.delete('/books/:id',deleteHandler)
 app.post('/books',bookshandler)
+
 app.get('/',(req,res)=>{
   res.send('home route request received')
 })
@@ -98,5 +104,28 @@ app.get('/books',(req,res)=>{
     }
 })
 })
+
+
+
+
+
+
+app.get('/books/:email',(req,res)=>{
+  let email=req.params.email
+  book.find({email : email},(err,result)=>{
+    if(err)
+    {
+        console.log(err);
+    }
+    else
+    {
+        console.log(result);
+        res.send(result);
+    }
+})
+})
+
+
+
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
